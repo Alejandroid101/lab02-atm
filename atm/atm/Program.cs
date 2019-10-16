@@ -19,7 +19,6 @@ namespace atm
             while (session)
             {
 
-
                 Console.WriteLine("1.)Deposit");
                 Console.WriteLine("2.)Withdraw");
                 Console.WriteLine("3.)View Balance");
@@ -61,6 +60,7 @@ namespace atm
             }
             return Balance;
         }
+
         
     }
 }
