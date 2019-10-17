@@ -4,7 +4,9 @@ namespace atm
 {
     public static class Program
     {
-        public static Int32 Balance = 5000;
+        // Basic comments to welcome user and call of "options" method
+
+        public static Double Balance = 5000;
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to BrokeBank!");
@@ -15,29 +17,30 @@ namespace atm
 
         public static void Options()
         {
+            //options menu and method initializer. Everything wrapped on a while loop to end when exit.
+            //case 1 and 2 run Deposit() and Withdraw() respectively.
+
             bool session = true;
             while (session)
             {
-
                 Console.WriteLine("1.)Deposit");
                 Console.WriteLine("2.)Withdraw");
                 Console.WriteLine("3.)View Balance");
                 Console.WriteLine("4.)Return Card(Exit)");
                 string choice = Console.ReadLine();
-                int opt = Convert.ToInt32(choice);
-
+                Double opt = Convert.ToDouble(choice);
                 switch (opt)
                 {
                     case 1:
                         Console.WriteLine("How much would you like to deposit? ");
                         string dv = Console.ReadLine();
-                        Int32 depoVal = Convert.ToInt32(dv);
+                        Double depoVal = Convert.ToDouble(dv);
                         Deposit(depoVal);
                         break;
                     case 2:
                         Console.WriteLine("How much would you like to withdraw? ");
                         string wv = Console.ReadLine();
-                        Int32 withVal = Convert.ToInt32(wv);
+                        Double withVal = Convert.ToDouble(wv);
                         Withdraw(withVal);
                         break;
                     case 3:
@@ -52,7 +55,8 @@ namespace atm
                 }
             }
         }
-        public static Int32 Deposit(Int32 amount)
+        //Deposit only works with positive numbers. Updates The current balance.
+        public static Double Deposit(Double amount)
         {
             if (amount > 0)
             {
@@ -65,7 +69,8 @@ namespace atm
             }
             return Balance;
         }
-        public static Int32 Withdraw(Int32 amount)
+        //Withdraw only allows you to get available money. Updates the current balance.
+        public static Double Withdraw(Double amount)
         {
             if (amount > Balance)
             {
