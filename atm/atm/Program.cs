@@ -2,7 +2,7 @@
 
 namespace atm
 {
-    public class Program
+    public static class Program
     {
         public static Int32 Balance = 5000;
         public static void Main(string[] args)
@@ -26,7 +26,6 @@ namespace atm
                 string choice = Console.ReadLine();
                 int opt = Convert.ToInt32(choice);
 
-
                 switch (opt)
                 {
                     case 1:
@@ -39,6 +38,7 @@ namespace atm
                         Console.WriteLine("How much would you like to withdraw? ");
                         string wv = Console.ReadLine();
                         Int32 withVal = Convert.ToInt32(wv);
+                        Withdraw(withVal);
                         break;
                     case 3:
                         Console.WriteLine($"Your current balance is: {Balance} ");
@@ -57,10 +57,31 @@ namespace atm
             if (amount > 0)
             {
                 Balance = Balance + amount;
+                Console.WriteLine($"Transaction completed. Your new balance is: {Balance}");
+            }
+            else
+            {
+                Console.WriteLine("That is an invalid input");
+            }
+            return Balance;
+        }
+        public static Int32 Withdraw(Int32 amount)
+        {
+            if (amount > Balance)
+            {
+                Console.WriteLine("You dont have that much bread");
+            }
+            else if (amount < 0)
+            {
+                Console.WriteLine("That is an invalid input");
+            }
+            else
+            {
+                Balance = Balance - amount;
+                Console.WriteLine($"Transaction completed. Your new balance is: {Balance}");
             }
             return Balance;
         }
 
-        
     }
 }
