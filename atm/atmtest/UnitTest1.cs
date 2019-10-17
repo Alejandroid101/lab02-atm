@@ -12,13 +12,13 @@ namespace atmtest
         [Fact]
         public void TestDepo()
         {
-            int balance = atm.Program.Balance;
+            Double balance = atm.Program.Balance;
             Assert.Equal(balance+ 1000, Deposit(1000));
         }
         [Fact]
         public void TestWith()
         {
-            int balance = atm.Program.Balance;
+            Double balance = atm.Program.Balance;
             Assert.Equal(balance- 4000, Withdraw(4000));
         }
         
@@ -26,13 +26,13 @@ namespace atmtest
         [Fact]
         public void TestDepoNeg()
         {
-            int balance = atm.Program.Balance;
+            Double balance = atm.Program.Balance;
             Assert.Equal(balance, Deposit(-200));
         }
         [Fact]
         public void TestWithMore()
         {
-            int balance = atm.Program.Balance;
+            Double balance = atm.Program.Balance;
             Assert.Equal(balance, Withdraw(10000));
         }
     }
